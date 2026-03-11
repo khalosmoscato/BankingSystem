@@ -21,6 +21,22 @@ namespace BankingSystem
             this.Transactions = new List<BankTransaction>();
         }
 
+        // deposit method: increase balance, create a new banktrans and add() that record to transactions list
+        public BankTransaction Deposit(BankTransaction transaction)
+        {
+            // checks if deposit is of a valid amount, if so, add to balance and return the meta data of the transaction, if not display error message:
+            if (transaction.Amount > 0)
+            {
+                Balance += transaction.Amount;
+                Transactions.Add(transaction);
+                return transaction;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input.");
+                return null;
+            }
+        }
 
     }
 }
