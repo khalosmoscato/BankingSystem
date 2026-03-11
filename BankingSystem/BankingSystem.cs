@@ -20,7 +20,7 @@ namespace BankingSystem
                 {
                     return account;
                 }
-                
+
             }
             return null;
         }
@@ -33,6 +33,14 @@ namespace BankingSystem
             }
             Accounts.Add(newAccount);
             return true;
+        }
+        // Interests method
+        public void ApplyYearlyInterests(decimal rate)
+        {
+            foreach (BankAccount account in Accounts)
+            {
+                account.ApplyInterests(rate);
+            }
         }
     }
 }

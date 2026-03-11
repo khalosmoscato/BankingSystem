@@ -53,6 +53,10 @@ namespace BankingSystem
                 return transaction;
             }
         }
-
+        // creating an interest applier method
+        public void ApplyInterest(decimal rate)
+        {
+            Balance += Balance * rate;
+        }
     }
 }
