@@ -24,5 +24,15 @@ namespace BankingSystem
             }
             return null;
         }
+        // Now we use the `Search` to build a secure `AddAccount` method
+        public bool AddAccount(BankAccount newAccount)
+        {
+            if (Search(newAccount.AccountNumber) != null)
+            {
+                return false;
+            }
+            Accounts.Add(newAccount);
+            return true;
+        }
     }
 }
