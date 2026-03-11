@@ -37,6 +37,22 @@ namespace BankingSystem
                 return null;
             }
         }
+        // withdraw method needs to check if below 0, or above the balance + agreed overdraft, if it passes the checks, we carry the withdaw and add the new transaction to our list
+        public BankTransaction Withdraw(BankTransaction transaction)
+        {
+            decimal currentFunds = Balance + AgreedOverdraft;
+            if (transaction.Amount < 0 || transaction.Amount > currentFunds)
+            {
+                Console.WriteLine("Invalid input.");
+                return null;
+            }
+            else
+            {
+                Balance -= transaction.Amount;
+                Transactions.Add(transaction);
+                return transaction;
+            }
+        }
 
     }
 }
